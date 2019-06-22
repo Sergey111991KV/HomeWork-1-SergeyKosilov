@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1CDF340622BD498F003B5E7E /* FirstViCi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDF340522BD498F003B5E7E /* FirstViCi.swift */; };
+		1CDF340A22BE7C13003B5E7E /* ThirdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDF340922BE7C13003B5E7E /* ThirdVC.swift */; };
 		1CEB0B3E22BC8A230004E6EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB0B3D22BC8A230004E6EF /* AppDelegate.swift */; };
 		1CEB0B4322BC8A230004E6EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CEB0B4122BC8A230004E6EF /* Main.storyboard */; };
 		1CEB0B4522BC8A250004E6EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CEB0B4422BC8A250004E6EF /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		1CDF340522BD498F003B5E7E /* FirstViCi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViCi.swift; sourceTree = "<group>"; };
+		1CDF340922BE7C13003B5E7E /* ThirdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdVC.swift; sourceTree = "<group>"; };
 		1CEB0B3A22BC8A230004E6EF /* HomeWork 1 SergeyKosilov.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HomeWork 1 SergeyKosilov.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CEB0B3D22BC8A230004E6EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CEB0B4222BC8A230004E6EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 		1CEB0B3C22BC8A230004E6EF /* HomeWork 1 SergeyKosilov */ = {
 			isa = PBXGroup;
 			children = (
+				1CDF340922BE7C13003B5E7E /* ThirdVC.swift */,
 				1CDF340522BD498F003B5E7E /* FirstViCi.swift */,
 				1CEB0B4F22BC8DCA0004E6EF /* SecondVC.swift */,
 				1CEB0B3D22BC8A230004E6EF /* AppDelegate.swift */,
@@ -141,6 +144,7 @@
 				1CEB0B5022BC8DCA0004E6EF /* SecondVC.swift in Sources */,
 				1CDF340622BD498F003B5E7E /* FirstViCi.swift in Sources */,
 				1CEB0B3E22BC8A230004E6EF /* AppDelegate.swift in Sources */,
+				1CDF340A22BE7C13003B5E7E /* ThirdVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

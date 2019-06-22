@@ -29,9 +29,8 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="TXo-gk-60a"/>
                                                 </constraints>
-                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="username"/>
+                                                <textInputTraits key="textInputTraits"/>
                                                 <connections>
                                                     <action selector="textFieldCganged:" destination="BYZ-38-t0r" eventType="editingChanged" id="BfW-b7-i1t"/>
                                                 </connections>
@@ -66,9 +65,8 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="gjh-t3-0Cc"/>
                                                         </constraints>
-                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                                        <textInputTraits key="textInputTraits"/>
                                                         <connections>
                                                             <action selector="textFieldCganged:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="5fG-fc-5py"/>
                                                         </connections>
@@ -135,6 +133,9 @@
                                                 <state key="normal" title="Регистрация">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="goThird:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yyN-IZ-xbC"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ivw-Kd-Hmo">
                                                 <rect key="frame" x="132.33333333333334" y="0.0" width="92.666666666666657" height="30"/>
@@ -142,6 +143,9 @@
                                                 <state key="normal" title="/Вход">
                                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="goSecond:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kGe-oe-LcB"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -161,6 +165,9 @@
                                                 <state key="normal" title="Не помню логин">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="goThird:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iiJ-Fd-CUm"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRh-Kx-eHn">
                                                 <rect key="frame" x="167.66666666666663" y="0.0" width="147.33333333333337" height="30"/>
@@ -168,6 +175,9 @@
                                                 <state key="normal" title="Не помню пароль">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="goThird:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mbk-WB-LOf"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -216,7 +226,8 @@
                         <outlet property="labelNonPassword" destination="68B-Ge-7FT" id="wwR-eQ-8LO"/>
                         <outlet property="loginTextField" destination="WqY-LX-11M" id="gce-V1-1Ek"/>
                         <outlet property="passwordTextFild" destination="0B7-rT-Tiu" id="Ke4-Sd-f3n"/>
-                        <segue destination="BQl-nm-YU9" kind="show" identifier="Segue" id="Vo2-3b-el1"/>
+                        <segue destination="BQl-nm-YU9" kind="show" identifier="LoginMade" id="Vo2-3b-el1"/>
+                        <segue destination="diR-PD-jah" kind="show" identifier="Registration/forgotten" id="2cj-iD-VIW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -228,10 +239,25 @@
             </objects>
             <point key="canvasLocation" x="1107.2463768115942" y="133.92857142857142"/>
         </scene>
-        <!--View Controller-->
+        <!--ThirdVC-->
+        <scene sceneID="jUh-CZ-ELS">
+            <objects>
+                <viewController id="diR-PD-jah" customClass="ThirdVC" customModule="HomeWork_1_SergeyKosilov" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sOd-4H-jeS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="xgX-jE-uHz"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0fn-Xz-yno" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2163" y="-508"/>
+        </scene>
+        <!--SecondVC-->
         <scene sceneID="uvT-fQ-nrp">
             <objects>
-                <viewController id="BQl-nm-YU9" sceneMemberID="viewController">
+                <viewController id="BQl-nm-YU9" customClass="SecondVC" customModule="HomeWork_1_SergeyKosilov" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uxZ-Eq-OeW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -241,7 +267,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wPf-QR-AfK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2108" y="134"/>
+            <point key="canvasLocation" x="2162" y="516"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="evz-CP-Oe5">
