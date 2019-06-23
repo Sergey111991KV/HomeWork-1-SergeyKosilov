@@ -16,6 +16,10 @@ var dict : [String:String] = [:]
 
 class FirstViCi: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet var homeWorkView: UIView!
+    
     @IBOutlet weak var btnPodskazka: UIButton!
     
     @IBOutlet weak var loginTextField: UITextField!
@@ -38,19 +42,37 @@ class FirstViCi: UIViewController, UITextFieldDelegate {
     
     @IBAction func goSecond (_ sender: UIButton){
        performSegue(withIdentifier: "LoginMade", sender: nil)
+        
+        
     }
         
     @IBAction func goThird (_ sender: UIButton){
         performSegue(withIdentifier: "Registration/forgotten", sender: nil)
+        
+        
     }
         
 
     @IBAction func tapGestureRecognizer(_ sender: UITapGestureRecognizer) {
         self.loginTextField.resignFirstResponder()
         self.passwordTextFild.resignFirstResponder()
+        
+        
     }
    
-    
+    @IBAction func hintActionButton(_ sender: UIButton){
+        let login = loginTextField.text
+        if dict.keys.contains(login!) == true {
+        labelNonPassword.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        labelNonPassword.text = "Name of teacher"
+        }else{
+            labelNonPassword.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            labelNonPassword.text = "Put login"
+            
+        }
+        
+        
+    }
     
     
     
@@ -59,6 +81,7 @@ class FirstViCi: UIViewController, UITextFieldDelegate {
         let login = loginTextField.text
         let password = passwordTextFild.text
         if dict.keys.contains(login!) == true && dict.values.contains(password!) == true{
+            btnEnter.setTitleColor(UIColor.black, for: UIControl.State.normal)
             btnEnter.isEnabled = true
             labelNonPassword.textColor = #colorLiteral(red: 0.5186036825, green: 0.8912252784, blue: 0.9079722762, alpha: 1)
             labelNonLog.textColor = #colorLiteral(red: 0.5186036825, green: 0.8912252784, blue: 0.9079722762, alpha: 1)
@@ -66,14 +89,17 @@ class FirstViCi: UIViewController, UITextFieldDelegate {
         }
         if dict.keys.contains(login!) == false && dict.values.contains(password!) == true{
             btnEnter.isEnabled = false
+            btnEnter.setTitleColor(UIColor.gray, for: UIControl.State.normal)
             labelNonLog.textColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
         }
         if dict.keys.contains(login!) == true && dict.values.contains(password!) == false{
+            btnEnter.setTitleColor(UIColor.gray, for: UIControl.State.normal)
             btnEnter.isEnabled = false
             labelNonPassword.textColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
         }
         if dict.keys.contains(login!) == false && dict.values.contains(password!) == false{
             btnEnter.isEnabled = false
+            btnEnter.setTitleColor(UIColor.gray, for: UIControl.State.normal)
             labelNonPassword.textColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
             labelNonPassword.textColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
             
@@ -84,8 +110,6 @@ class FirstViCi: UIViewController, UITextFieldDelegate {
         }
 
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         btnEnter.isEnabled = false
@@ -95,28 +119,36 @@ class FirstViCi: UIViewController, UITextFieldDelegate {
         labelNonLog.textColor = #colorLiteral(red: 0.5186036825, green: 0.8912252784, blue: 0.9079722762, alpha: 1)
         
         dict.updateValue("Denis", forKey: "Denis")
-//        print(dict)
-//        print(loginUser)
-//        print(passwordUser)
-//        print(loginTextField.text)
-//        print(passwordTextFild.text)
-    }
-    
-    
-   
-    
-    override func viewWillAppear(_ animated: Bool) {
-      
-      
         
+        registerForKeyboardNotifications()
+    }
+    deinit {
+        removeKeyboardNotifications()
     }
     
+    //MARK:keyboard
+    func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(kbWillShow), name: Notification.Name.init("keyboardWillShowNotification") ,object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(kbWillHide), name: NSNotification.Name.init("keyboardWillHideNotification"), object: nil)
+    }
+    
+    func removeKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name.init("keyboardWillShowNotification"),
+                                                        object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.init("keyboardWillHideNotification"), object: nil)
+    }
+    
+    @objc func kbWillShow(_ notification: Notification) {
+        let userInfo = notification.userInfo
+        let kbFrameSize = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        scrollView.contentOffset = CGPoint(x: 0, y: kbFrameSize.height)
+    }
+    
+    @objc func kbWillHide() {
+        scrollView.contentOffset = CGPoint.zero
+    }
     
    
-    
-    
-
-
 }
-//1.Пытался сделать label.isEnable = false - пропадали textField
-//2.Как добавить обновление текстовых полей - получается, что я уже ввел все правильно, но пока не два раза не нажал на вход он не обновился и обратно - когда уже стер поле, кнопка входа до сих пор переходит по сегвею
+
+
